@@ -11,7 +11,7 @@
 </div>
 
 <div class="table-responsive">
-    <table class="table table-bordered w-auto">
+    <table class="table table-striped w-auto">
         <thead>
             <tr>
                 <th class="col-md-5">Số thứ tự</th>
