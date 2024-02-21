@@ -1,4 +1,4 @@
-@extends('trang-chu')
+@extends('BackEnd.trang-chu')
 
 @section('content')
 <div class="container">

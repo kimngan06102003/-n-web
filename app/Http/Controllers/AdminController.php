@@ -10,7 +10,7 @@ class AdminController extends Controller
     public function DanhSachAdmin()
     {
         $dsAdmin=AdminModels::all();
-        return view('quan-li-tai-khoan-admin.index',compact('dsAdmin'));
+        return view('BackEnd.quan-li-tai-khoan-admin.index',compact('dsAdmin'));
     }
     public function CapNhat($id)
     {
@@ -19,7 +19,7 @@ class AdminController extends Controller
         {
             return "Tài khoản không tồn tại";
         }
-        return view('quan-li-tai-khoan-admin.cap-nhat', compact('admin'));
+        return view('BackEnd.quan-li-tai-khoan-admin.cap-nhat', compact('admin'));
     }
 
     public function XuLyCapNhat(Request $request, $id)
@@ -32,7 +32,7 @@ class AdminController extends Controller
         $admin->mat_khau=$request->mat_khau;
         $admin->save();
 
-        return redirect()->route('quan-li-tai-khoan-admin.index');
+        return redirect()->route('BackEnd.quan-li-tai-khoan-admin.index');
     }
 
     public function Xoa($id)
@@ -42,6 +42,6 @@ class AdminController extends Controller
             return "Tài khoản admin không tồn tại";
         }        
         $admin->delete();
-        return redirect()->route('quan-li-tai-khoan-admin.index');
+        return redirect()->route('BackEnd.quan-li-tai-khoan-admin.index');
     }
 }

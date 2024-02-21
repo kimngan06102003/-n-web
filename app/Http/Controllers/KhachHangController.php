@@ -10,12 +10,12 @@ class KhachHangController extends Controller
     public function DanhSachKhachHang()
     {
         $dsKhachHang=KhachHangModels::all();
-        return view('quan-li-khach-hang.index',compact('dsKhachHang'));
+        return view('BackEnd.quan-li-khach-hang.index',compact('dsKhachHang'));
     }
     public function ThemMoi()
     {
         $dsKhachHang=KhachHangModels::all();
-        return view('quan-li-khach-hang.them-moi',compact('dsKhachHang'));
+        return view('BackEnd.quan-li-khach-hang.them-moi',compact('dsKhachHang'));
     }
     
     public function XuLyThemMoi(Request $request)
@@ -27,13 +27,13 @@ class KhachHangController extends Controller
         $khachhang->dia_chi=$request->dia_chi;
         $khachhang->so_dien_thoai=$request->so_dien_thoai;
         $khachhang->save();
-        return redirect()->route('quan-li-khach-hang.index');
+        return redirect()->route('BackEnd.quan-li-khach-hang.index');
     }
     
     public function CapNhat($id)
     {
         $khachhang=KhachHangModels::find($id);
-        return view('quan-li-khach-hang.cap-nhat', compact('khachhang'));
+        return view('BackEnd.quan-li-khach-hang.cap-nhat', compact('khachhang'));
     }
 
     public function XuLyCapNhat(Request $request, $id)
@@ -46,7 +46,7 @@ class KhachHangController extends Controller
         $khachhang->so_dien_thoai=$request->so_dien_thoai;
         $khachhang->save();
 
-        return redirect()->route('quan-li-khach-hang.index');
+        return redirect()->route('BackEnd.quan-li-khach-hang.index');
     }
  
     public function Xoa($id)
@@ -56,6 +56,6 @@ class KhachHangController extends Controller
             return "Thông tin khách hàng không tồn tại";
         }        
         $khachhang->delete();
-        return "Xóa thông tin khách hàng thành công";
+        return redirect()->route('BackEnd.quan-li-khach-hang.index');
     }
 }

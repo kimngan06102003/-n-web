@@ -14,7 +14,7 @@ class DonHangController extends Controller
     public function DanhSachDonHang()
     {
         $dsDonHang = DonHangModels::all();
-        return view('quan-li-don-hang.index', compact('dsDonHang'));
+        return view('BackEnd.quan-li-don-hang.index', compact('dsDonHang'));
     }
 
     public function ThemMoi()
@@ -22,7 +22,7 @@ class DonHangController extends Controller
         $dsNhanVien = NhanVienModels::all();
         $dsSanPham = SanPhamModels::all();
         $dsTinhTrangDonHang = TinhTrangDonHangModels::all();
-        return view('quan-li-don-hang.them-moi', compact('dsNhanVien', 'dsSanPham', 'dsTinhTrangDonHang'));
+        return view('BackEnd.quan-li-don-hang.them-moi', compact('dsNhanVien', 'dsSanPham', 'dsTinhTrangDonHang'));
     }
 
     public function XuLyThemMoi(Request $request)
@@ -49,7 +49,7 @@ class DonHangController extends Controller
         $donHang->tinh_trang_don_hang_id = $request->tinh_trang_don_hang_id;
         $donHang->save();
 
-        return redirect()->route('quan-li-don-hang.index');
+        return redirect()->route('BackEnd.quan-li-don-hang.index');
     }
 
     public function CapNhat($id)
@@ -58,7 +58,7 @@ class DonHangController extends Controller
         if (empty($donHang)) {
             return "Đơn hàng không tồn tại";
         }
-        return view('quan-li-don-hang.cap-nhat', compact('donHang'));
+        return view('BackEnd.quan-li-don-hang.cap-nhat', compact('donHang'));
     }
 
     public function XuLyCapNhat(Request $request, $id)
@@ -89,7 +89,7 @@ class DonHangController extends Controller
         $donHang->tinh_trang_don_hang_id = $request->tinh_trang_don_hang_id;
         $donHang->save();
 
-        return redirect()->route('quan-li-don-hang.index');
+        return redirect()->route('BackEnd.quan-li-don-hang.index');
     }
 
     public function Xoa($id)
@@ -100,6 +100,6 @@ class DonHangController extends Controller
         }
         
         $donHang->delete();
-        return redirect()->route('quan-li-don-hang.index');
+        return redirect()->route('BackEnd.quan-li-don-hang.index');
     }
 }

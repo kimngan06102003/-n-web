@@ -12,11 +12,11 @@ class DangNhapController extends Controller
     //
     public function DangNhap()
     {
-        return view('dang-nhap');
+        return view('BackEnd.dang-nhap');
     }
     public function TrangChu()
     {
-        return view('trang-chu');
+        return view('BackEnd.trang-chu');
     }
 
     // Phương thức xử lý đăng nhập
@@ -32,10 +32,10 @@ class DangNhapController extends Controller
         if ($user && strcmp($request->ten_dang_nhap, $user->ten_dang_nhap) === 0 && Hash::check($credentials['mat_khau'], $user->mat_khau)) {
             // Đăng nhập thành công
             Auth::login($user);
-            return redirect()->route('trang-chu')->with('success', 'Đăng nhập thành công.');
+            return redirect()->route('BackEnd.trang-chu')->with('success', 'Đăng nhập thành công.');
         } else {
             // Đăng nhập không thành công
-            return redirect()->route('dang-nhap')->with('error', 'Tên đăng nhập hoặc mật khẩu không chính xác.');
+            return redirect()->route('BackEnd.dang-nhap')->with('error', 'Tên đăng nhập hoặc mật khẩu không chính xác.');
         }
     }
 
@@ -45,7 +45,7 @@ class DangNhapController extends Controller
 public function DangXuat()
     {
         Auth::logout();
-        return redirect()->route('dang-nhap')->with('success', 'Đăng xuất thành công');
+        return redirect()->route('BackEnd.dang-nhap')->with('success', 'Đăng xuất thành công');
     }
     
 }

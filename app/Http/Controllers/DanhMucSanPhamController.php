@@ -10,12 +10,12 @@ class DanhMucSanPhamController extends Controller
     public function DanhMucSanPham()
     {
         $dsDanhMuc=DanhMucSanPhamModels::all();
-        return view('quan-li-danh-muc-san-pham.index',compact('dsDanhMuc'));
+        return view('BackEnd.quan-li-danh-muc-san-pham.index',compact('dsDanhMuc'));
     }
     public function ThemMoi()
     {
         $dsDanhMuc=DanhMucSanPhamModels::all();
-        return view('quan-li-danh-muc-san-pham.them-moi',compact('dsDanhMuc'));
+        return view('BackEnd.quan-li-danh-muc-san-pham.them-moi',compact('dsDanhMuc'));
 
     }
     
@@ -28,13 +28,13 @@ class DanhMucSanPhamController extends Controller
         $danhmuc = new DanhMucSanPhamModels();
         $danhmuc->ten_danh_muc=$request->ten_danh_muc;
         $danhmuc->save();
-        return redirect()->route('quan-li-danh-muc-san-pham.index');
+        return redirect()->route('BackEnd.quan-li-danh-muc-san-pham.index');
     }
     
     public function CapNhat($id)
     {
         $danhmuc=DanhMucSanPhamModels::find($id);
-        return view('quan-li-danh-muc-san-pham.cap-nhat', compact('danhmuc'));
+        return view('BackEnd.quan-li-danh-muc-san-pham.cap-nhat', compact('danhmuc'));
     }
 
     public function XuLyCapNhat(Request $request, $id)
@@ -48,14 +48,14 @@ class DanhMucSanPhamController extends Controller
         $danhmuc->ten_danh_muc = $request->ten_danh_muc;
         $danhmuc->save();
 
-        return redirect()->route('quan-li-danh-muc-san-pham.index');
+        return redirect()->route('BackEnd.quan-li-danh-muc-san-pham.index');
     }
 
     public function Xoa($id)
     {
         $danhmuc = DanhMucSanPhamModels::find($id);
         $danhmuc->delete();
-        return redirect()->route('quan-li-danh-muc-san-pham.index');
+        return redirect()->route('BackEnd.quan-li-danh-muc-san-pham.index');
     }
 
 }

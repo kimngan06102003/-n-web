@@ -17,7 +17,7 @@ class DangNhapMiddleware
     public function handle(Request $request, Closure $next): Response
     {
         if (!Auth::check()) {
-            return redirect()->route('dang-nhap')->with('error', 'Vui lòng đăng nhập để truy cập.');
+            return redirect()->route('BackEnd.dang-nhap')->with('error', 'Vui lòng đăng nhập để truy cập.');
         }
         return $next($request);
     }

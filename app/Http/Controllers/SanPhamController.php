@@ -12,13 +12,13 @@ class SanPhamController extends Controller
     public function DanhSachSanPham()
     {
         $dsSanPham=SanPhamModels::all();
-        return view('quan-li-san-pham.index',compact('dsSanPham'));
+        return view('BackEnd.quan-li-san-pham.index',compact('dsSanPham'));
     }
     public function ThemMoi()
     {
         $dsDanhMuc=DanhMucSanPhamModels::all();
         $dsNhaCungCap=NhaCungCapModels::all();
-        return view('quan-li-san-pham.them-moi',compact('dsDanhMuc','dsNhaCungCap'));
+        return view('BackEnd.quan-li-san-pham.them-moi',compact('dsDanhMuc','dsNhaCungCap'));
     }
     
     public function XuLyThemMoi(Request $request)
@@ -46,7 +46,7 @@ class SanPhamController extends Controller
         $sanPham->danh_muc_san_pham_id = $request->danh_muc_san_pham_id;
         $sanPham->nha_cung_cap_id  = $request->nha_cung_cap_id;
         $sanPham->save();
-        return redirect()->route('quan-li-san-pham.index');
+        return redirect()->route('BackEnd.quan-li-san-pham.index');
     }
     
     public function CapNhat($id)
@@ -54,7 +54,7 @@ class SanPhamController extends Controller
         $dsDanhMuc=DanhMucSanPhamModels::all();
         $dsNhaCungCap=NhaCungCapModels::all();
         $sanpham = SanPhamModels::find($id);
-        return view('quan-li-san-pham.cap-nhat', compact('sanpham', 'dsDanhMuc','dsNhaCungCap'));
+        return view('BackEnd.quan-li-san-pham.cap-nhat', compact('sanpham', 'dsDanhMuc','dsNhaCungCap'));
     }
 
     public function XuLyCapNhat(Request $request, $id)
@@ -83,7 +83,7 @@ class SanPhamController extends Controller
         $sanPham->nha_cung_cap_id  = $request->nha_cung_cap;
         $sanPham->save();
 
-        return redirect()->route('quan-li-san-pham.index');
+        return redirect()->route('BackEnd.quan-li-san-pham.index');
 
     }
 
@@ -94,7 +94,7 @@ class SanPhamController extends Controller
             return "Sản phẩm không tồn tại";
         }        
         $sanPham->delete();
-        return redirect()->route('quan-li-san-pham.index');
+        return redirect()->route('BackEnd.quan-li-san-pham.index');
     }
     
 }
