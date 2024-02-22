@@ -11,7 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        //
+        Schema::create('binh_luan', function (Blueprint $table) {
+            $table->id();
+            $table->unsignedInteger('khach_hang_id');
+            $table->string('noi_dung');
+            $table->dateTime('ngay_dang');
+            $table->timestamps();
+        });
     }
 
     /**
@@ -19,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+        Schema::dropIfExists('binh_luan');
     }
 };
